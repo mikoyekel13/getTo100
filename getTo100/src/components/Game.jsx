@@ -7,7 +7,7 @@ function Game(props) {
     setSteps((prev) => prev + 1);
     setGameCount((prev) => prev + number);
   }
-  function addNumber(key) {
+  function multiplyNumber(key) {
     if (key === "*2") {
       setSteps((prev) => prev + 1);
       setGameCount((prev) => Math.floor(prev * 2));
@@ -16,26 +16,55 @@ function Game(props) {
       setGameCount((prev) => Math.floor(prev / 2));
     }
   }
+  function gotToHun(){
+    if(gameCount===100){
+      return(<div>
+         <button>Start Game</button><br />
+      <button>Quit Game</button>
+      </div>)
+    } return null;
+  }
   console.log(props.isActive);
+
+
   return (
-    <div className="gameScreen">
-      <button disabled={!props.isActive} onClick={() => addNumber(2)}>
-        /2
-      </button>
-      <button disabled={!props.isActive} onClick={() => addNumber("*2")}>
-        *2
-      </button>
-      <button disabled={!props.isActive} onClick={() => plusNumber(+1)}>
-        +1
-      </button>
-      <button disabled={!props.isActive} onClick={() => plusNumber(-1)}>
-        -1
-      </button>
-      <p>Steps: {steps}</p>
+    <>
+      {gameCount !=100 && (
+        <div className="gameScreen">
+          <>
+            <button disabled={!props.isActive} onClick={() => multiplyNumber(2)}>
+              /2
+            </button>
+            <button disabled={!props.isActive} onClick={() => multiplyNumber("*2")}>
+              *2
+            </button>
+            <button disabled={!props.isActive} onClick={() => plusNumber(+1)}>
+              +1
+            </button>
+            <button disabled={!props.isActive} onClick={() => plusNumber(-1)}>
+              -1
+            </button>
+          </>
+          <p>Steps: {steps}</p>
+        </div>
+      )}
+      {gotToHun()}
       <h2 style={props.isActive ? { color: "black" } : { color: "gray" }}>
         {gameCount}
       </h2>
-    </div>
+    </>
   );
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
 export default Game;
