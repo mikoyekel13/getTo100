@@ -17,6 +17,8 @@ function App() {
         {players.map((item, index) => (
           <PlayerScreen
             currPlayer={currPlayer}
+            changeCurrPlayer={setCurrPlayer}
+            playersAmount={players.length}
             isGame={startGame}
             player={item}
             index={index}

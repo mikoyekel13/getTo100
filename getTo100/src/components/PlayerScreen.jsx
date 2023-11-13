@@ -14,11 +14,12 @@ function PlayerScreen(props) {
       <>
         <div className="playerScreen">
           <h2>{props.player.name}</h2>
-          {props.currPlayer === props.index ? (
-            <Game isActive={true} currPlayer={props.currPlayer} />
-          ) : (
-            <Game isActive={false} currPlayer={props.currPlayer} />
-          )}
+          <Game
+            changeCurrPlayer={props.changeCurrPlayer}
+            isActive={props.currPlayer === props.index}
+            currPlayer={props.currPlayer}
+            playersAmount={props.playersAmount}
+          />
         </div>
       </>
     );

@@ -4,6 +4,7 @@ function Navbar(props) {
     props.setPlayersArr((prev) => {
       const newPlayersArr = [...prev];
       newPlayersArr.push({ name: newPlayerName, scores: [], isPlaying: false });
+      localStorage.setItem("players", JSON.stringify(newPlayersArr));
       return newPlayersArr;
     });
   }
