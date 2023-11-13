@@ -2,7 +2,6 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import PlayerScreen from "./components/PlayerScreen";
 import "./App.css";
-import { useState } from 'react';
 import Game from './components/Game'
 function App() {
   const [gameCount, setGameCount] = useState(0);
