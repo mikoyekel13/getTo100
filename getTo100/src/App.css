@@ -21,3 +21,8 @@
   font-size: 2em;
   white-space: pre;
 }
+
+.gameScreen {
+  display: flex;
+  flex-wrap: wrap;
+}
