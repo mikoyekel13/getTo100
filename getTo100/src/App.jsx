@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   const [players, setPlayers] = useState([]);
   const [startGame, setStartGame] = useState(false);
-
+  const [currPlayer, setCurrPlayer] = useState(0);
   return (
     <>
       <Navbar
@@ -15,7 +15,13 @@ function App() {
       />
       <div id="screensContainer">
         {players.map((item, index) => (
-          <PlayerScreen isGame={startGame} player={item} key={index} />
+          <PlayerScreen
+            currPlayer={currPlayer}
+            isGame={startGame}
+            player={item}
+            index={index}
+            key={index}
+          />
         ))}
       </div>
     </>

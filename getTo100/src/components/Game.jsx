@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Game() {
+function Game(props) {
   const [gameCount, setGameCount] = useState(Math.floor(Math.random() * 100));
 
   function plusNumber(number) {
@@ -13,13 +13,24 @@ function Game() {
       setGameCount((prev) => Math.floor(prev / 2));
     }
   }
+  console.log(props.isActive);
   return (
     <div className="gameScreen">
-      <button onClick={() => addNumber(2)}>/2</button>
-      <button onClick={() => addNumber("*2")}>*2</button>
-      <button onClick={() => plusNumber(+1)}>+1</button>
-      <button onClick={() => plusNumber(-1)}>-1</button>
-      <h2>{gameCount}</h2>
+      <button disabled={!props.isActive} onClick={() => addNumber(2)}>
+        /2
+      </button>
+      <button disabled={!props.isActive} onClick={() => addNumber("*2")}>
+        *2
+      </button>
+      <button disabled={!props.isActive} onClick={() => plusNumber(+1)}>
+        +1
+      </button>
+      <button disabled={!props.isActive} onClick={() => plusNumber(-1)}>
+        -1
+      </button>
+      <h2 style={props.isActive ? { color: "black" } : { color: "gray" }}>
+        {gameCount}
+      </h2>
     </div>
   );
 }
