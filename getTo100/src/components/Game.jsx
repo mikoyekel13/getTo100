@@ -1,15 +1,8 @@
 import { useState } from "react";
 
 function Game() {
-  const [gameCount, setGameCount] = useState(0);
-  const [randomClicked, setRandomClicked] = useState(false);
+  const [gameCount, setGameCount] = useState(Math.floor(Math.random() * 100));
 
-  function randomNumber() {
-    let randomNum = Math.floor(Math.random() * 100);
-    setGameCount(randomNum);
-    setRandomClicked(true);
-    return randomNum;
-  }
   function plusNumber(number) {
     setGameCount((prev) => prev + number);
   }
@@ -22,9 +15,6 @@ function Game() {
   }
   return (
     <div className="gameScreen">
-      <button onClick={randomNumber} disabled={randomClicked}>
-        Random Number
-      </button>
       <button onClick={() => addNumber(2)}>/2</button>
       <button onClick={() => addNumber("*2")}>*2</button>
       <button onClick={() => plusNumber(+1)}>+1</button>

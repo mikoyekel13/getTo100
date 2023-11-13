@@ -15,6 +15,7 @@ function Navbar(props) {
       <button
         className="navBtn"
         onClick={() => props.startGame((prev) => (prev ? false : true))}
+        disabled={props.isGame}
       >
         Start Game!
       </button>

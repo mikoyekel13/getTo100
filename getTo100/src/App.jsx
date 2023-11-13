@@ -8,7 +8,11 @@ function App() {
 
   return (
     <>
-      <Navbar setPlayersArr={setPlayers} startGame={setStartGame} />
+      <Navbar
+        setPlayersArr={setPlayers}
+        startGame={setStartGame}
+        isGame={startGame}
+      />
       <div id="screensContainer">
         {players.map((item, index) => (
           <PlayerScreen isGame={startGame} player={item} key={index} />
