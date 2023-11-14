@@ -6,6 +6,7 @@ function App() {
   const [players, setPlayers] = useState([]);
   const [startGame, setStartGame] = useState(false);
   const [currPlayer, setCurrPlayer] = useState(0);
+  const [winnersAmount, setWinnersAmount] = useState([]);
   return (
     <>
       <Navbar
@@ -19,6 +20,8 @@ function App() {
             currPlayer={currPlayer}
             changeCurrPlayer={setCurrPlayer}
             playersAmount={players.length}
+            winnersAmount={winnersAmount}
+            setWinnersAmount={setWinnersAmount}
             isGame={startGame}
             player={item}
             index={index}

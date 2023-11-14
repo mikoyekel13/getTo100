@@ -1,30 +1,27 @@
 import { useState } from "react";
 
 function Game(props) {
-  const [gameCount, setGameCount] = useState(Math.floor(Math.random() * 100));
+  //   const [gameCount, setGameCount] = useState(Math.floor(Math.random() * 100));
   const [steps, setSteps] = useState(0);
-  function handleCurrPlayer(num) {
-    return num + 1 < props.playersAmount ? num + 1 : 0;
-  }
 
   function plusNumber(number) {
-    props.changeCurrPlayer((prev) => handleCurrPlayer(prev));
+    props.changeCurrPlayer((prev) => props.handleCurrPlayer(prev));
     setSteps((prev) => prev + 1);
-    setGameCount((prev) => prev + number);
+    props.setGameCount((prev) => prev + number);
   }
   function multiplyNumber(key) {
     if (key === "*2") {
-      props.changeCurrPlayer((prev) => handleCurrPlayer(prev));
+      props.changeCurrPlayer((prev) => props.handleCurrPlayer(prev));
       setSteps((prev) => prev + 1);
-      setGameCount((prev) => Math.floor(prev * 2));
+      props.setGameCount((prev) => Math.floor(prev * 2));
     } else {
-      props.changeCurrPlayer((prev) => handleCurrPlayer(prev));
+      props.changeCurrPlayer((prev) => props.handleCurrPlayer(prev));
       setSteps((prev) => prev + 1);
-      setGameCount((prev) => Math.floor(prev / 2));
+      props.setGameCount((prev) => Math.floor(prev / 2));
     }
   }
   function gotToHun() {
-    if (gameCount === 100) {
+    if (props.gameCount === 100) {
       return (
         <div>
           <button>Start Game</button>
@@ -35,11 +32,10 @@ function Game(props) {
     }
     return null;
   }
-  console.log(props.isActive);
 
   return (
     <>
-      {gameCount != 100 && (
+      {props.gameCount != 100 && (
         <div
           style={
             props.isActive
@@ -75,7 +71,7 @@ function Game(props) {
       )}
       {gotToHun()}
       <h2 style={props.isActive ? { color: "black" } : { color: "gray" }}>
-        {gameCount}
+        {props.gameCount}
       </h2>
     </>
   );
