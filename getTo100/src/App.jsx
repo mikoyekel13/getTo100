@@ -7,15 +7,17 @@ function App() {
   const [startGame, setStartGame] = useState(false);
   const [currPlayer, setCurrPlayer] = useState(0);
   const [winnersAmount, setWinnersAmount] = useState([]);
+  const [idArr, setIdArr] = useState([]);
   return (
     <>
       <Navbar
         setPlayersArr={setPlayers}
         startGame={setStartGame}
         isGame={startGame}
+        setIdArr={setIdArr}
       />
       <div id="screensContainer">
-        {players.map((item, index) => (
+        {players.map((item) => (
           <PlayerScreen
             currPlayer={currPlayer}
             changeCurrPlayer={setCurrPlayer}
@@ -24,8 +26,12 @@ function App() {
             setWinnersAmount={setWinnersAmount}
             isGame={startGame}
             player={item}
-            index={index}
-            key={index}
+            index={item.id}
+            key={item.id}
+            setPlayersArr={setPlayers}
+            playersArr={players}
+            idArr={idArr}
+            setIdArr={setIdArr}
           />
         ))}
       </div>
