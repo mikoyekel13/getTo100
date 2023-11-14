@@ -17,8 +17,12 @@ function PlayerScreen(props) {
           <Game
             changeCurrPlayer={props.changeCurrPlayer}
             isActive={props.currPlayer === props.index}
+            index={props.index}
             currPlayer={props.currPlayer}
             playersAmount={props.playersAmount}
+            setPlayersArr={props.setPlayersArr}
+            playersArr={props.playersArr}
+            // startGame={props.startGame}
           />
         </div>
       </>

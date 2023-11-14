@@ -26,3 +26,25 @@
   display: flex;
   flex-wrap: wrap;
 }
+.navBtn{
+  background-color: plum;
+  display: flex;
+  /* height:20vh;
+  width: 20vw; */
+  text-align: center;
+  font-size: 30px;
+  margin:15px;
+}
+body{
+  background-color: #87CEEB;
+
+  /* background-color: #B76E79; */
+
+}
+.gamebuttons{
+  background-color:plum ;
+  margin :8px;
+}
+#steps{
+  margin-left: 10px;
+}

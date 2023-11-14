@@ -15,6 +15,7 @@ function App() {
       />
       <div id="screensContainer">
         {players.map((item, index) => (
+
           <PlayerScreen
             currPlayer={currPlayer}
             changeCurrPlayer={setCurrPlayer}
@@ -23,8 +24,12 @@ function App() {
             player={item}
             index={index}
             key={index}
+            setPlayersArr={setPlayers}
+            playersArr={players}
           />
+
         ))}
+
       </div>
     </>
   );
